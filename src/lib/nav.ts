@@ -16,11 +16,13 @@ export function sectionTitle(id: SectionId, locale: Locale): string {
 }
 
 export function localeOf(entryId: string): Locale {
-  return entryId.startsWith('en/') ? 'en' : 'ru';
+  // glob-загрузчик срезает хвост '/index': корневые страницы имеют id
+  // просто 'ru' и 'en', а не 'ru/' и 'en/'.
+  return entryId === 'en' || entryId.startsWith('en/') ? 'en' : 'ru';
 }
 
 export function pathOf(entryId: string): string {
-  // glob-загрузчик даёт id вида 'ru/index' и 'ru/interface/settings/general';
-  // 'index' в конце — это корень раздела, ему соответствует пустой путь.
-  return entryId.replace(/^(ru|en)\//, '').replace(/(^|\/)index$/, '');
+  // Возможные id: 'ru', 'en', 'ru/interface/settings/general'.
+  // Корню языка соответствует пустой путь.
+  return entryId.replace(/^(ru|en)(\/|$)/, '');
 }
