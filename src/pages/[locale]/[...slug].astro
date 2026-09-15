@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localeOf, pathOf } from '../../lib/nav';
+import { coerceLocale } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs', ({ data }) => !data.draft);
+  return docs.map((entry) => ({
+    params: {
+      locale: localeOf(entry.id),
+      slug: pathOf(entry.id) || undefined,
+    },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const locale = coerceLocale(Astro.params.locale ?? 'ru');
+const { Content } = await render(entry);
+---
+
+<BaseLayout locale={locale} title={entry.data.title} description={entry.data.description}>
+  <article class="doc-body">
+    <h1>{entry.data.title}</h1>
+    <Content />
+  </article>
+</BaseLayout>
+
+<style>
+  .doc-body {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+</style>

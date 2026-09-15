@@ -21,3 +21,15 @@ test('корень строится через base и ведёт на /site/ru/
   assert.match(html, /url=\/site\/ru\//);
   assert.match(html, /href="\/site\/ru\/"/);
 });
+
+test('обе языковые версии главной собираются', () => {
+  assert.match(read('ru/index.html'), /Клавдия — десктопное приложение/);
+  assert.match(read('en/index.html'), /Klavdiya is a desktop application/);
+});
+
+test('переключатель языка ведёт на парную страницу', () => {
+  const ru = read('ru/index.html');
+  assert.match(ru, /href="\/site\/en\/"/);
+  const en = read('en/index.html');
+  assert.match(en, /href="\/site\/ru\/"/);
+});

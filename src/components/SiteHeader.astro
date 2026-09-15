@@ -1,9 +1,11 @@
 ---
-import { t } from '../lib/i18n';
+import { t, type Locale } from '../lib/i18n';
 import { href } from '../lib/url';
+import LangSwitch from './LangSwitch.astro';
+import ThemeToggle from './ThemeToggle.astro';
 
-interface Props { locale: 'ru' | 'en' }
-const { locale } = Astro.props;
+interface Props { locale: Locale; path?: string }
+const { locale, path = '' } = Astro.props;
 ---
 
 <header class="site-header">
@@ -15,7 +17,8 @@ const { locale } = Astro.props;
     <button type="button" class="search-open" data-search-open>
       {t(locale, 'search')} <kbd>Ctrl K</kbd>
     </button>
-    <slot name="header-extra" />
+    <LangSwitch locale={locale} path={path} />
+    <ThemeToggle locale={locale} />
   </nav>
 </header>
 
@@ -32,25 +35,13 @@ const { locale } = Astro.props;
     top: 0;
     z-index: 20;
   }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--fg);
-    font-weight: 600;
-  }
+  .brand { display: flex; align-items: center; gap: 0.5rem; color: var(--fg); font-weight: 600; }
   .brand:hover { text-decoration: none; }
   .site-header__nav { margin-left: auto; display: flex; align-items: center; gap: 0.5rem; }
   .search-open {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--bg-inset);
-    color: var(--fg-muted);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 0.35rem 0.6rem;
-    cursor: pointer;
-    font: inherit;
+    display: flex; align-items: center; gap: 0.5rem;
+    background: var(--bg-inset); color: var(--fg-muted);
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 0.35rem 0.6rem; cursor: pointer; font: inherit;
   }
 </style>

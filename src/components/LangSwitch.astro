@@ -1,0 +1,34 @@
+---
+import { LOCALES, t, type Locale } from '../lib/i18n';
+import { altHref } from '../lib/url';
+
+interface Props { locale: Locale; path: string }
+const { locale, path } = Astro.props;
+---
+
+<div class="lang" role="group" aria-label={t(locale, 'langSwitch')}>
+  {
+    LOCALES.map((code) => (
+      <a
+        href={altHref(locale, path, code)}
+        class:list={['lang__item', { 'lang__item--active': code === locale }]}
+        aria-current={code === locale ? 'true' : undefined}
+      >
+        {code.toUpperCase()}
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .lang { display: inline-flex; border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
+  .lang__item {
+    padding: 0.25rem 0.55rem;
+    color: var(--fg-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .lang__item:hover { text-decoration: none; background: var(--bg-inset); }
+  .lang__item--active { background: var(--accent-soft); color: var(--accent); }
+</style>
