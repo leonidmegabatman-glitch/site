@@ -15,3 +15,9 @@ test('корень уводит на русскую версию', () => {
   const html = read('index.html');
   assert.match(html, /url=\/site\/ru\//);
 });
+
+test('корень строится через base и ведёт на /site/ru/', () => {
+  const html = read('index.html');
+  assert.match(html, /url=\/site\/ru\//);
+  assert.match(html, /href="\/site\/ru\/"/);
+});
