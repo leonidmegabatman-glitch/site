@@ -1,0 +1,46 @@
+---
+import { href } from '../lib/url';
+import type { TreeNode } from '../lib/toc';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  nodes: TreeNode[];
+  locale: Locale;
+  isActive: (path: string) => boolean;
+  isOnPath: (path: string) => boolean;
+}
+const { nodes, locale, isActive, isOnPath } = Astro.props;
+---
+
+<ul class="tree__list" data-tree>
+  {
+    nodes.map((node) => (
+      <li>
+        <a
+          href={href(locale, node.path)}
+          class:list={['tree__link', { 'tree__link--active': isActive(node.path) }]}
+          aria-current={isActive(node.path) ? 'page' : undefined}
+        >
+          {node.title}
+        </a>
+        {node.children.length > 0 && (isOnPath(node.path) || isActive(node.path)) && (
+          <Astro.self nodes={node.children} locale={locale} isActive={isActive} isOnPath={isOnPath} />
+        )}
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .tree__list { list-style: none; margin: 0; padding-left: 0.5rem; }
+  .tree__list .tree__list { padding-left: 0.9rem; }
+  .tree__link {
+    display: block;
+    padding: 0.3rem 0.5rem;
+    border-radius: var(--radius-sm);
+    color: var(--fg-muted);
+    font-size: 0.88rem;
+  }
+  .tree__link:hover { background: var(--bg-inset); color: var(--fg); text-decoration: none; }
+  .tree__link--active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+</style>

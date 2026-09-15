@@ -1,0 +1,72 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SidebarTree from '../components/SidebarTree.astro';
+import Toc from '../components/Toc.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PrevNext from '../components/PrevNext.astro';
+import type { Locale } from '../lib/i18n';
+import type { SectionId } from '../lib/nav';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description?: string;
+  section: SectionId;
+  path: string;
+  entries: { id: string; data: any }[];
+  headings: { id: string; text: string; depth: number }[];
+  prev?: { path: string; title: string };
+  next?: { path: string; title: string };
+  titles?: Record<string, string>;
+}
+const { locale, title, description, section, path, entries, headings, prev, next, titles } = Astro.props;
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <div class="doc">
+    <div class="doc__sidebar">
+      <SidebarTree locale={locale} entries={entries} currentPath={path} />
+    </div>
+
+    <main class="doc__main" data-pagefind-body>
+      <Breadcrumbs locale={locale} section={section} path={path} title={title} titles={titles} />
+      <h1>{title}</h1>
+      <slot />
+      <PrevNext locale={locale} prev={prev} next={next} />
+    </main>
+
+    <div class="doc__toc">
+      <Toc locale={locale} headings={headings} />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .doc {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr) var(--toc-w);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .doc__sidebar {
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    border-right: 1px solid var(--border);
+  }
+  .doc__main { max-width: var(--content-max); padding: 2rem 0 4rem; min-width: 0; }
+  .doc__main :global(h1) { font-size: 1.9rem; line-height: 1.25; margin: 0.5rem 0 1.25rem; }
+  .doc__main :global(h2) { font-size: 1.3rem; margin: 2rem 0 0.75rem; }
+
+  @media (max-width: 1100px) {
+    .doc { grid-template-columns: var(--sidebar-w) minmax(0, 1fr); }
+    .doc__toc { display: none; }
+  }
+  @media (max-width: 800px) {
+    .doc { grid-template-columns: minmax(0, 1fr); padding: 0 1rem; }
+    .doc__sidebar { display: none; }
+  }
+</style>

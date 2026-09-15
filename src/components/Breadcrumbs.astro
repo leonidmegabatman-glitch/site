@@ -1,0 +1,44 @@
+---
+import { SECTIONS, sectionTitle, type SectionId } from '../lib/nav';
+import { href } from '../lib/url';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+  section: SectionId;
+  path: string;
+  title: string;
+  titles?: Record<string, string>;
+}
+const { locale, section, path, title, titles = {} } = Astro.props;
+// Первый сегмент пути — сам раздел; пустые сегменты (корень) отбрасываются.
+const segments = path.split('/').filter(Boolean).slice(1);
+const crumbs = segments.map((_, index) => {
+  const sub = segments.slice(0, index + 1).join('/');
+  const full = `${section}/${sub}`;
+  return { path: full, label: titles[full] ?? sub.split('-').join(' ') };
+});
+---
+
+<nav class="crumbs" aria-label="breadcrumbs">
+  <a href={href(locale)}>Клавдия</a>
+  <span aria-hidden="true">/</span>
+  <a href={href(locale, section)}>{sectionTitle(section, locale)}</a>
+  {
+    crumbs.map((crumb, index) => (
+      <>
+        <span aria-hidden="true">/</span>
+        {index === crumbs.length - 1 ? (
+          <span aria-current="page">{title}</span>
+        ) : (
+          <a href={href(locale, crumb.path)}>{crumb.label}</a>
+        )}
+      </>
+    ))
+  }
+</nav>
+
+<style>
+  .crumbs { font-size: 0.85rem; color: var(--fg-muted); display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .crumbs span[aria-current] { color: var(--fg); }
+</style>

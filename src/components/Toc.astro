@@ -1,0 +1,42 @@
+---
+import { t, type Locale } from '../lib/i18n';
+
+interface Props { locale: Locale; headings: { id: string; text: string; depth: number }[] }
+const { locale, headings } = Astro.props;
+---
+
+{
+  headings.length > 0 && (
+    <aside class="toc" aria-label={t(locale, 'onThisPage')}>
+      <div class="toc__title">{t(locale, 'onThisPage')}</div>
+      <ul>
+        {headings.map((h) => (
+          <li class:list={[`toc__depth-${h.depth}`]}>
+            <a href={`#${h.id}`}>{h.text}</a>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  )
+}
+
+<style>
+  .toc {
+    position: sticky;
+    top: 72px;
+    align-self: start;
+    font-size: 0.85rem;
+    padding: 1rem 0;
+  }
+  .toc__title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+    margin-bottom: 0.5rem;
+  }
+  .toc ul { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--border); }
+  .toc li a { display: block; padding: 0.2rem 0.6rem; color: var(--fg-muted); }
+  .toc li a:hover { color: var(--fg); text-decoration: none; }
+  .toc__depth-3 { padding-left: 0.6rem; }
+</style>

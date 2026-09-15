@@ -1,0 +1,23 @@
+---
+import { t, type Locale } from '../lib/i18n';
+import { href } from '../lib/url';
+
+interface Props {
+  locale: Locale;
+  prev?: { path: string; title: string };
+  next?: { path: string; title: string };
+}
+const { locale, prev, next } = Astro.props;
+---
+
+<nav class="prevnext">
+  {prev ? <a class="prevnext__item" href={href(locale, prev.path)}><span>{t(locale, 'back')}</span>{prev.title}</a> : <span />}
+  {next ? <a class="prevnext__item prevnext__item--next" href={href(locale, next.path)}><span>{t(locale, 'next')}</span>{next.title}</a> : <span />}
+</nav>
+
+<style>
+  .prevnext { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .prevnext__item { display: flex; flex-direction: column; gap: 0.15rem; color: var(--fg); max-width: 45%; }
+  .prevnext__item span { font-size: 0.75rem; color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .prevnext__item--next { text-align: right; margin-left: auto; }
+</style>

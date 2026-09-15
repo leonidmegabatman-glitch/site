@@ -33,3 +33,20 @@ test('переключатель языка ведёт на парную стр�
   const en = read('en/index.html');
   assert.match(en, /href="\/site\/ru\/"/);
 });
+
+test('на странице есть три колонки и крошки', () => {
+  const html = read('ru/index.html');
+  assert.match(html, /class="doc__sidebar"/);
+  assert.match(html, /class="doc__main"/);
+  assert.match(html, /class="crumbs"/);
+});
+
+test('на странице виден раздел «Знакомство»', () => {
+  const html = read('ru/index.html');
+  assert.match(html, /Знакомство/);
+});
+
+test('на главной нет блока «Назад» без предыдущей страницы', () => {
+  const html = read('ru/index.html');
+  assert.doesNotMatch(html, />Назад</);
+});
