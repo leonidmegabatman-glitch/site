@@ -11,7 +11,8 @@
     "search": "pagefind --site dist",
     "verify": "node scripts/verify.mjs",
     "test": "node --test \"tests/**/*.test.mjs\"",
-    "shots": "powershell -ExecutionPolicy Bypass -File scripts/shots/capture.ps1"
+    "shots": "powershell -ExecutionPolicy Bypass -File scripts/shots/capture.ps1",
+    "build:full": "bun run build && bun run search"
   },
   "dependencies": {
     "@astrojs/react": "6.0.5",

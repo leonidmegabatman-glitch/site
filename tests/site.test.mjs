@@ -77,3 +77,10 @@ test('карточка без файла снимка рисует заглуш�
   const html = read('ru/interface/settings/general/index.html');
   assert.match(html, /нужен снимок|screenshot needed/);
 });
+test('индекс поиска собран', () => {
+  assert.ok(existsSync(join(DIST, 'pagefind', 'pagefind.js')), 'нет dist/pagefind/pagefind.js — запусти bun run search');
+});
+
+test('на странице есть фильтр языка для поиска', () => {
+  assert.match(read('ru/index.html'), /data-pagefind-filter="locale"/);
+});

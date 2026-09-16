@@ -1,0 +1,17 @@
+---
+import { t, type Locale } from '../lib/i18n';
+import Island from './Search.tsx';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+
+<Island
+  client:load
+  locale={locale}
+  labels={{
+    placeholder: t(locale, 'searchPlaceholder'),
+    empty: t(locale, 'searchEmpty'),
+    hint: t(locale, 'searchHint'),
+  }}
+/>
