@@ -9,8 +9,13 @@ interface Props {
   path: string;
   title: string;
   titles?: Record<string, string>;
+  /** Путь корневой страницы раздела; пустая строка — корень языка. */
+  sectionRoot?: string;
 }
-const { locale, section, path, title, titles = {} } = Astro.props;
+const { locale, section, path, title, titles = {}, sectionRoot = '' } = Astro.props;
+// Корень языка сам служит корневой страницей «Знакомства» — отдельной ссылки на него не нужно.
+const atRoot = path === '';
+const atSectionRoot = path === sectionRoot;
 // Первый сегмент пути — сам раздел; пустые сегменты (корень) отбрасываются.
 const segments = path.split('/').filter(Boolean).slice(1);
 const crumbs = segments.map((_, index) => {
@@ -21,9 +26,21 @@ const crumbs = segments.map((_, index) => {
 ---
 
 <nav class="crumbs" aria-label="breadcrumbs">
-  <a href={href(locale)}>Клавдия</a>
-  <span aria-hidden="true">/</span>
-  <a href={href(locale, section)}>{sectionTitle(section, locale)}</a>
+  {
+    !atRoot && (
+      <>
+        <a href={href(locale)}>Клавдия</a>
+        {!atSectionRoot && <span aria-hidden="true">/</span>}
+      </>
+    )
+  }
+  {
+    atSectionRoot ? (
+      <span aria-current="page">{sectionTitle(section, locale)}</span>
+    ) : (
+      <a href={href(locale, sectionRoot)}>{sectionTitle(section, locale)}</a>
+    )
+  }
   {
     crumbs.map((crumb, index) => (
       <>

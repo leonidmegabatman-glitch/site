@@ -18,8 +18,10 @@ interface Props {
   prev?: { path: string; title: string };
   next?: { path: string; title: string };
   titles?: Record<string, string>;
+  /** Путь корневой страницы раздела; пустая строка — корень языка. */
+  sectionRoot?: string;
 }
-const { locale, title, description, section, path, entries, headings, prev, next, titles } = Astro.props;
+const { locale, title, description, section, path, entries, headings, prev, next, titles, sectionRoot } = Astro.props;
 ---
 
 <BaseLayout locale={locale} title={title} description={description}>
@@ -29,7 +31,14 @@ const { locale, title, description, section, path, entries, headings, prev, next
     </div>
 
     <main class="doc__main" data-pagefind-body>
-      <Breadcrumbs locale={locale} section={section} path={path} title={title} titles={titles} />
+      <Breadcrumbs
+        locale={locale}
+        section={section}
+        path={path}
+        title={title}
+        titles={titles}
+        sectionRoot={sectionRoot}
+      />
       <h1>{title}</h1>
       <slot />
       <PrevNext locale={locale} prev={prev} next={next} />

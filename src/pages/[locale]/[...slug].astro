@@ -23,6 +23,17 @@ const index = ordered.findIndex((p) => p.path === path);
 const prev = index > 0 ? ordered[index - 1] : undefined;
 const next = index >= 0 && index < ordered.length - 1 ? ordered[index + 1] : undefined;
 const titles = Object.fromEntries(ordered.map((p) => [p.path, p.title]));
+// Корневая страница раздела — самая неглубокая в нём. У «Знакомства» это сам
+// корень языка: отдельной страницы-лендинга у раздела нет.
+const sectionRoot =
+  ordered
+    .filter((p) => p.section === entry.data.section)
+    .map((p) => p.path)
+    .sort(
+      (a, b) =>
+        a.split('/').filter(Boolean).length - b.split('/').filter(Boolean).length ||
+        a.localeCompare(b),
+    )[0] ?? '';
 
 const elements = entry.data.elements;
 
@@ -42,6 +53,7 @@ const tocHeadings = headings.map((h) => ({ id: h.slug, text: h.text, depth: h.de
   prev={prev}
   next={next}
   titles={titles}
+  sectionRoot={sectionRoot}
 >
   <Content />
 
