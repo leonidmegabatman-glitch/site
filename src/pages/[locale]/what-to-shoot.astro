@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t, type Locale } from '../../lib/i18n';
+import { coerceLocale, href } from '../../lib/url';
+import { missingScreenshots } from '../../lib/shots';
+
+export function getStaticPaths() {
+  return [{ params: { locale: 'ru' } }, { params: { locale: 'en' } }];
+}
+
+const shots = import.meta.glob<{ default: ImageMetadata }>('../../assets/screenshots/**/*.png', { eager: true });
+const available = new Set(
+  Object.keys(shots).map((k) => k.replace('../../assets/screenshots/', '')),
+);
+
+const locale = coerceLocale(Astro.params.locale ?? 'ru') as Locale;
+const entries = await getCollection('docs', ({ data }) => !data.draft);
+const missing = missingScreenshots(entries, available, locale);
+---
+
+<BaseLayout locale={locale} title={t(locale, 'whatToShoot')}>
+  <main class="wrap" data-pagefind-ignore>
+    <h1>{t(locale, 'whatToShoot')}</h1>
+    {
+      missing.length === 0 ? (
+        <p>{t(locale, 'nothingMissing')}</p>
+      ) : (
+        <>
+          <p class="lead">{t(locale, 'whatToShootIntro')}</p>
+          <ul>
+            {missing.map((item) => (
+              <li>
+                <a href={`${href(locale, item.path)}#${item.elementId}`}>{item.elementTitle}</a>
+                <span class="where"> — {item.title}</span>
+                <br />
+                <code>src/assets/screenshots/{item.screenshot}</code>
+              </li>
+            ))}
+          </ul>
+        </>
+      )
+    }
+  </main>
+</BaseLayout>
+
+<style>
+  .wrap { max-width: var(--content-max); margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .lead { color: var(--fg-muted); }
+  ul { line-height: 1.9; }
+  .where { color: var(--fg-muted); font-size: 0.9rem; }
+</style>

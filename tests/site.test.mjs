@@ -51,6 +51,11 @@ test('на главной нет блока «Назад» без предыду
   assert.doesNotMatch(html, />Назад</);
 });
 
+test('страница «Что нужно доснять» существует в обоих языках', () => {
+  assert.match(read('ru/what-to-shoot/index.html'), /Что нужно доснять/);
+  assert.match(read('en/what-to-shoot/index.html'), /Screenshots needed/);
+});
+
 // Снимается { skip: true } в задаче 7, когда появится страница «Общие».
 test('карточка элемента рендерит все обязательные части', { skip: true }, () => {
   const html = read('ru/interface/settings/general/index.html');
