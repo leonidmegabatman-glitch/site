@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import DocLayout from '../../layouts/DocLayout.astro';
+import ElementCard from '../../components/ElementCard.astro';
 import { localeOf, pathOf } from '../../lib/nav';
 import { coerceLocale } from '../../lib/url';
 import { orderOf } from '../../lib/toc';
@@ -23,6 +24,8 @@ const prev = index > 0 ? ordered[index - 1] : undefined;
 const next = index >= 0 && index < ordered.length - 1 ? ordered[index + 1] : undefined;
 const titles = Object.fromEntries(ordered.map((p) => [p.path, p.title]));
 
+const elements = entry.data.elements;
+
 // render(entry) в Astro 7 возвращает и Content, и список заголовков.
 const { Content, headings } = await render(entry);
 const tocHeadings = headings.map((h) => ({ id: h.slug, text: h.text, depth: h.depth }));
@@ -41,4 +44,12 @@ const tocHeadings = headings.map((h) => ({ id: h.slug, text: h.text, depth: h.de
   titles={titles}
 >
   <Content />
+
+  {elements.length > 0 && (
+    <div class="cards">
+      {elements.map((card) => (
+        <ElementCard locale={locale} card={card} />
+      ))}
+    </div>
+  )}
 </DocLayout>

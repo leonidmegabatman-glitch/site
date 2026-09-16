@@ -56,10 +56,24 @@ test('страница «Что нужно доснять» существует
   assert.match(read('en/what-to-shoot/index.html'), /Screenshots needed/);
 });
 
-// Снимается { skip: true } в задаче 7, когда появится страница «Общие».
-test('карточка элемента рендерит все обязательные части', { skip: true }, () => {
+test('карточка элемента рендерит все обязательные части', () => {
   const html = read('ru/interface/settings/general/index.html');
   assert.match(html, /class="card__kind"/);
   assert.match(html, /Где найти/);
   assert.match(html, /Зачем нужен/);
+});
+
+test('на странице «Общие» десять карточек с нужными якорями', () => {
+  const html = read('ru/interface/settings/general/index.html');
+  for (const id of [
+    'language', 'theme', 'theme-custom-colors', 'co-authored-by', 'verbose-output',
+    'chat-history-days', 'environment-setup', 'claude-install', 'remember-tabs', 'startup-greeting',
+  ]) {
+    assert.match(html, new RegExp(`id="${id}"`), `нет карточки ${id}`);
+  }
+});
+
+test('карточка без файла снимка рисует заглушку', () => {
+  const html = read('ru/interface/settings/general/index.html');
+  assert.match(html, /нужен снимок|screenshot needed/);
 });
