@@ -1,0 +1,126 @@
+---
+import { t, type Locale } from '../lib/i18n';
+import Screenshot from './Screenshot.astro';
+
+type Kind = 'button' | 'checkbox' | 'field' | 'switch' | 'panel' | 'select' | 'tab' | 'menu' | 'link';
+
+interface Card {
+  id: string;
+  uiKey?: string;
+  title: string;
+  kind: Kind;
+  where: string;
+  parent?: string;
+  why: string;
+  how: string[];
+  screenshot?: string;
+  highlight?: { x: number; y: number; w: number; h: number };
+  notes: string[];
+}
+
+interface Props { locale: Locale; card: Card }
+const { locale, card } = Astro.props;
+
+const KIND_LABEL: Record<Kind, string> = {
+  button: t(locale, 'kindButton'),
+  checkbox: t(locale, 'kindCheckbox'),
+  field: t(locale, 'kindField'),
+  switch: t(locale, 'kindSwitch'),
+  panel: t(locale, 'kindPanel'),
+  select: t(locale, 'kindSelect'),
+  tab: t(locale, 'kindTab'),
+  menu: t(locale, 'kindMenu'),
+  link: t(locale, 'kindLink'),
+};
+---
+
+<section class="card" id={card.id} data-ui-key={card.uiKey}>
+  <header class="card__head">
+    <h3 class="card__title">{card.title}</h3>
+    <span class="card__kind">{KIND_LABEL[card.kind]}</span>
+  </header>
+
+  <dl class="card__facts">
+    <dt>{t(locale, 'whereLabel')}</dt>
+    <dd>{card.where}</dd>
+
+    <dt>{t(locale, 'whyLabel')}</dt>
+    <dd>{card.why}</dd>
+
+    {
+      card.how.length > 0 && (
+        <>
+          <dt>{t(locale, 'howLabel')}</dt>
+          <dd>
+            {card.how.length === 1 ? (
+              <p>{card.how[0]}</p>
+            ) : (
+              <ol>
+                {card.how.map((step) => (
+                  <li>{step}</li>
+                ))}
+              </ol>
+            )}
+          </dd>
+        </>
+      )
+    }
+  </dl>
+
+  {card.screenshot && <Screenshot src={card.screenshot} alt={card.title} highlight={card.highlight} locale={locale} />}
+
+  {
+    card.notes.length > 0 && (
+      <div class="card__notes">
+        <div class="card__notes-title">{t(locale, 'notesLabel')}</div>
+        <ul>
+          {card.notes.map((note) => (
+            <li>{note}</li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+</section>
+
+<style>
+  .card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-raised);
+    padding: 1.1rem 1.2rem;
+    margin: 1.5rem 0;
+    scroll-margin-top: 72px;
+  }
+  .card:target { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .card__head { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
+  .card__title { margin: 0; font-size: 1.05rem; }
+  .card__kind {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.05rem 0.5rem;
+  }
+  .card__facts { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 0.4rem 1rem; margin: 0.9rem 0 0; }
+  .card__facts dt { color: var(--fg-muted); font-size: 0.82rem; padding-top: 0.1rem; }
+  .card__facts dd { margin: 0; }
+  .card__facts ol, .card__facts ul { margin: 0; padding-left: 1.1rem; }
+  .card__facts p { margin: 0; }
+  .card__notes {
+    margin-top: 1rem;
+    border-left: 3px solid var(--border);
+    padding: 0.4rem 0 0.4rem 0.8rem;
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+  }
+  .card__notes-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .card__notes ul { margin: 0.25rem 0 0; padding-left: 1.1rem; }
+
+  @media (max-width: 640px) {
+    .card__facts { grid-template-columns: minmax(0, 1fr); }
+    .card__facts dt { margin-top: 0.5rem; }
+  }
+</style>

@@ -50,3 +50,11 @@ test('на главной нет блока «Назад» без предыду
   const html = read('ru/index.html');
   assert.doesNotMatch(html, />Назад</);
 });
+
+// Снимается { skip: true } в задаче 7, когда появится страница «Общие».
+test('карточка элемента рендерит все обязательные части', { skip: true }, () => {
+  const html = read('ru/interface/settings/general/index.html');
+  assert.match(html, /class="card__kind"/);
+  assert.match(html, /Где найти/);
+  assert.match(html, /Зачем нужен/);
+});
