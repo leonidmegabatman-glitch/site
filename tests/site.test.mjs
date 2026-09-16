@@ -73,9 +73,10 @@ test('на странице «Общие» десять карточек с ну
   }
 });
 
-test('карточка без файла снимка рисует заглушку', () => {
+test('снимок отрисован вместо заглушки, с обводкой', () => {
   const html = read('ru/interface/settings/general/index.html');
-  assert.match(html, /нужен снимок|screenshot needed/);
+  assert.doesNotMatch(html, /нужен снимок|screenshot needed/, 'заглушка осталась, хотя файл снимка есть');
+  assert.match(html, /class="shot__highlight"/, 'нет обводки элемента');
 });
 test('индекс поиска собран', () => {
   assert.ok(existsSync(join(DIST, 'pagefind', 'pagefind.js')), 'нет dist/pagefind/pagefind.js — запусти bun run search');
