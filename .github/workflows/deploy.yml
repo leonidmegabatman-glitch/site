@@ -27,7 +27,7 @@ jobs:
       - run: bun run search
       - run: bun run verify
       - run: bun run check
-      - run: node --test tests/
+      - run: bun run test
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
