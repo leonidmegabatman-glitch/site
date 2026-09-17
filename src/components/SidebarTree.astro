@@ -2,7 +2,7 @@
 import { SECTIONS, sectionTitle } from '../lib/nav';
 import { buildTree } from '../lib/toc';
 import Tree from './Tree.astro';
-import type { Locale } from '../lib/i18n';
+import { t, type Locale } from '../lib/i18n';
 
 interface Props {
   locale: Locale;
@@ -21,11 +21,14 @@ const isOnPath = (path: string) => currentPath === path || currentPath.startsWit
   {
     SECTIONS.map((section) => {
       const nodes = tree.filter((n) => sectionOf(n.path) === section.id);
-      if (nodes.length === 0) return null;
       return (
         <div class="tree__section">
           <div class="tree__section-title">{sectionTitle(section.id, locale)}</div>
-          <Tree nodes={nodes} locale={locale} isActive={isActive} isOnPath={isOnPath} />
+          {nodes.length === 0 ? (
+            <div class="tree__empty">{t(locale, 'inDevelopment')}</div>
+          ) : (
+            <Tree nodes={nodes} locale={locale} isActive={isActive} isOnPath={isOnPath} />
+          )}
         </div>
       );
     })
@@ -47,5 +50,11 @@ const isOnPath = (path: string) => currentPath === path || currentPath.startsWit
     letter-spacing: 0.06em;
     color: var(--fg-muted);
     padding: 0 0.5rem 0.35rem;
+  }
+  .tree__empty {
+    padding: 0.15rem 0.5rem;
+    color: var(--fg-muted);
+    font-size: 0.8rem;
+    font-style: italic;
   }
 </style>

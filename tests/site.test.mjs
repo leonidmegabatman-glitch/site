@@ -92,3 +92,15 @@ test('индекс поиска собран', () => {
 test('на странице есть фильтр языка для поиска', () => {
   assert.match(read('ru/index.html'), /data-pagefind-filter="locale"/);
 });
+
+test('дерево показывает пустые разделы со статусом «в разработке»', () => {
+  const html = read('ru/index.html');
+  assert.match(html, /Рецепты/);
+  assert.match(html, /в разработке/);
+});
+
+test('«Что нужно доснять» перечисляет карточки без поля снимка', () => {
+  const html = read('ru/what-to-shoot/index.html');
+  assert.doesNotMatch(html, /Все снимки на месте/);
+  assert.match(html, /interface\/settings\/general\/language\.png/);
+});

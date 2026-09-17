@@ -26,6 +26,7 @@ const STRINGS = {
     ru: 'Все снимки на месте.',
     en: 'All screenshots are in place.',
   },
+  inDevelopment: { ru: 'в разработке', en: 'in progress' },
   docVersion: { ru: 'Документация для 0.6.0', en: 'Documentation for 0.6.0' },
   kindButton: { ru: 'кнопка', en: 'button' },
   kindCheckbox: { ru: 'галочка', en: 'checkbox' },
