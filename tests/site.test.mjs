@@ -22,6 +22,13 @@ test('корень строится через base и ведёт на /site/ru/
   assert.match(html, /href="\/site\/ru\/"/);
 });
 
+test('все внутренние ссылки идут через base', () => {
+  const html = read('ru/interface/settings/general/index.html');
+  const links = [...html.matchAll(/(?:href|src)="(\/[^"]*)"/g)].map((m) => m[1]);
+  const broken = links.filter((l) => !l.startsWith('/site/'));
+  assert.deepEqual(broken, [], `ссылки без base: ${broken.join(', ')}`);
+});
+
 test('обе языковые версии главной собираются', () => {
   assert.match(read('ru/index.html'), /Клавдия — десктопное приложение/);
   assert.match(read('en/index.html'), /Klavdiya is a desktop application/);
