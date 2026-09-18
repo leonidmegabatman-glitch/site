@@ -30,8 +30,8 @@ test('все внутренние ссылки идут через base', () => 
 });
 
 test('обе языковые версии главной собираются', () => {
-  assert.match(read('ru/index.html'), /Клавдия — десктопное приложение/);
-  assert.match(read('en/index.html'), /Klavdiya is a desktop application/);
+  assert.match(read('ru/index.html'), /Клавдия — бесплатное десктопное приложение/);
+  assert.match(read('en/index.html'), /Klavdiya is a free desktop application/);
 });
 
 test('переключатель языка ведёт на парную страницу', () => {
