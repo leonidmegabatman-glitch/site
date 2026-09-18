@@ -34,9 +34,15 @@ Search opens with **Ctrl+K** from anywhere.
 
 | Section | Status |
 |---|---|
-| Settings → General | 10 elements documented |
-| Other settings tabs | In progress |
-| Window, tabs, chat, agents, scheduler | In progress |
+| Settings (all 9 tabs) | Documented |
+| Window and Tabs | Documented |
+| Chat | Documented |
+| Projects | Documented |
+| Agents | Documented |
+| Scheduler | Documented |
+| MCP Servers | Documented |
+| Usage | Documented |
+| Widgets, checkpoints, CLAUDE.md | In progress |
 | Recipes and reference | Planned |
 
 The site lives in a public repository and grows as screens get documented.

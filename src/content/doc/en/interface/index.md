@@ -17,15 +17,21 @@ highlight, and notes. Card anchors are stable: recipes and chats can link to the
 
 ## What is documented
 
+- [Window and Tabs](window-tabs/) — navigation, tab bar, switching.
+- [Chat](chat/) — input bar, model, context, session management.
+- [Projects](projects/) — list, opening, project settings.
+- [Agents](agents/) — creation, runs, isolated execution.
+- [Scheduler](scheduler/) — tasks on a cron schedule.
+- [MCP Servers](mcp/) — connecting external tools.
+- [Usage](usage/) — token and cost statistics.
 - [Settings](settings/) — all tabs: General, Permissions, Environment, Extensions,
   Hooks, Commands, Storage, Proxy, Voice.
 
 ## What is in progress
 
-- Window and tabs — titlebar, switching projects and sessions.
-- Chat — the input bar, the message feed, tool widgets, checkpoints.
-- Agents — creation, runs, isolation in a git worktree.
-- Scheduler — tasks on a schedule.
-- MCP servers, CLAUDE.md, usage and other screens.
+- Tool widgets in the chat feed.
+- Checkpoints and forks.
+- CLAUDE.md — project memory.
+- Other screens and dialogs.
 
 Until a section page is written, the tree on the left marks it "in progress".
