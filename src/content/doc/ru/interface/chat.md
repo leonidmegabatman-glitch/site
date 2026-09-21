@@ -7,7 +7,7 @@ elements:
   - id: chat-input
     title: Строка ввода
     kind: field
-    where: Нижняя часть окна сессии
+    where: 'Нижняя часть окна сессии'
     uiKey: promptInput:placeholder
     why: Основное поле для общения с агентом. Поддерживает @-файлы, /-команды и вложение файлов.
     how:
@@ -18,19 +18,19 @@ elements:
   - id: chat-send
     title: Отправить сообщение
     kind: button
-    where: Строка ввода → кнопка отправки
+    where: 'Строка ввода → кнопка отправки'
     uiKey: promptInput:sendMessageEnter
     why: Отправляет введённое сообщение агенту. Enter также отправляет.
   - id: chat-stop
     title: Остановить генерацию
     kind: button
-    where: Строка ввода → кнопка стоп (во время генерации)
+    where: 'Строка ввода → кнопка стоп (во время генерации)'
     uiKey: promptInput:stopGeneration
     why: Прерывает текущую генерацию ответа. Полезно, если агент пошёл не в том направлении.
   - id: chat-model
     title: Выбор модели
     kind: select
-    where: Строка ввода → выпадающий список моделей
+    where: 'Строка ввода → выпадающий список моделей'
     uiKey: promptInput:modelLabel
     why: Выбирает модель для текущего сообщения — от быстрой и дешёвой до мощной и дорогой.
     notes:
@@ -41,19 +41,19 @@ elements:
   - id: chat-thinking
     title: Режим мышления
     kind: select
-    where: Строка ввода → выпадающий список мышления
+    where: 'Строка ввода → выпадающий список мышления'
     uiKey: promptInput:thinkingLabel
     why: Управляет глубиной рассуждений агента перед ответом — от «Авто» до «Ультрамышление».
   - id: chat-attach
     title: Прикрепить файлы
     kind: button
-    where: Строка ввода → иконка скрепки
+    where: 'Строка ввода → иконка скрепки'
     uiKey: promptInput:attachFiles
     why: Позволяет прикрепить файлы или папку к сообщению. Агент увидит их содержимое.
   - id: chat-context
     title: Индикатор контекста
     kind: panel
-    where: Строка ввода → правая часть
+    where: 'Строка ввода → правая часть'
     uiKey: promptInput:context.title
     why: Показывает, сколько токенов занято из контекстного окна. Помогает понять, когда пора свернуть контекст или начать новую сессию.
     notes:
@@ -61,7 +61,7 @@ elements:
   - id: chat-compact
     title: Свернуть и продолжить
     kind: button
-    where: Панель сессии → иконка ластика
+    where: 'Панель сессии → иконка ластика'
     uiKey: sessions:tooltip.compactSession
     why: Сжимает контекст сессии, сохраняя ключевую информацию. Позволяет продолжить работу без потери нити.
     notes:
@@ -69,19 +69,19 @@ elements:
   - id: chat-subagents
     title: Панель субагентов
     kind: button
-    where: Панель сессии → иконка агентов
+    where: 'Панель сессии → иконка агентов'
     uiKey: sessions:tooltip.subagentPanel
     why: Показывает активных субагентов, запущенных текущей сессией. Можно наблюдать за параллельной работой.
   - id: chat-export
     title: Выгрузить разбор
     kind: button
-    where: Панель сессии → иконка экспорта
+    where: 'Панель сессии → иконка экспорта'
     uiKey: sessions:tooltip.exportTrace
     why: Создаёт HTML-файл с полным разбором сессии — дерево сообщений, субагенты, поиск.
   - id: chat-copy
     title: Копировать разговор
     kind: button
-    where: Панель сессии → иконка копирования
+    where: 'Панель сессии → иконка копирования'
     uiKey: sessions:tooltip.copyConversation
     why: Копирует содержимое сессии как Markdown или JSONL для вставки в другие инструменты.
 ---

@@ -7,7 +7,7 @@ elements:
   - id: env-variables
     title: Переменные окружения
     kind: panel
-    where: Настройки → Окружение → основная секция
+    where: 'Настройки → Окружение → основная секция'
     uiKey: settings:environment.title
     why: Переменные, применяемые к каждой сессии Claude Code. Позволяют задать ключи, пути и флаги без правки системного окружения.
     how:
@@ -19,19 +19,19 @@ elements:
   - id: env-add-variable
     title: Добавить переменную
     kind: button
-    where: Настройки → Окружение → под списком переменных
+    where: 'Настройки → Окружение → под списком переменных'
     uiKey: settings:environment.addVariable
     why: Создаёт новую строку для переменной окружения.
   - id: common-variables
     title: Частые переменные
     kind: panel
-    where: Настройки → Окружение → блок подсказок
+    where: 'Настройки → Окружение → блок подсказок'
     uiKey: settings:environment.commonTitle
     why: Подсказки с часто используемыми переменными — телеметрия, модель, предупреждения о стоимости. Ускоряет настройку.
   - id: api-key-helper
     title: Скрипт помощника API-ключа
     kind: field
-    where: Настройки → Окружение → расширенная секция
+    where: 'Настройки → Окружение → расширенная секция'
     uiKey: settings:advanced.apiKeyHelper.label
     why: Путь к скрипту, который генерирует значение авторизации для API-запросов. Нужен при использовании динамических ключей.
     notes:
@@ -39,7 +39,7 @@ elements:
   - id: raw-json
     title: Сырые настройки (JSON)
     kind: panel
-    where: Настройки → Окружение → нижняя секция
+    where: 'Настройки → Окружение → нижняя секция'
     uiKey: settings:advanced.rawJson.label
     why: Показывает JSON, который будет сохранён в ~/.claude/settings.json. Позволяет увидеть итоговую конфигурацию и внести правки, недоступные через вкладки.
     notes:

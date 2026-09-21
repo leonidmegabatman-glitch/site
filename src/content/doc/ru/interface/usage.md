@@ -7,20 +7,20 @@ elements:
   - id: usage-stats
     title: Панель статистики
     kind: panel
-    where: Вкладка «Использование»
-    uiKey: usage:title
+    where: 'Вкладка «Использование»'
+    uiKey: usage:header.title
     why: Показывает общее потребление токенов и стоимость за выбранный период.
   - id: usage-period
     title: Период
     kind: select
-    where: Вкладка «Использование» → выпадающий список
-    uiKey: usage:period.today
+    where: 'Вкладка «Использование» → выпадающий список'
+    uiKey: usage:range.all
     why: Фильтрует статистику — сегодня, неделя, месяц или всё время.
   - id: usage-chart
     title: График использования
     kind: panel
-    where: Вкладка «Использование» → график
-    uiKey: usage:chart.title
+    where: 'Вкладка «Использование» → график'
+    uiKey: usage:tabs.timeline
     why: Визуализирует потребление токенов по дням. Помогает отслеживать расходы.
 ---
 

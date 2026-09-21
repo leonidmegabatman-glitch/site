@@ -7,34 +7,34 @@ elements:
   - id: scheduler-list
     title: Task list
     kind: panel
-    where: "Scheduler" tab
+    where: '"Scheduler" tab'
     uiKey: scheduler:title
     why: Shows all scheduled tasks. Each task is an agent that runs on a cron schedule.
   - id: scheduler-create
     title: Create task
     kind: button
-    where: "Scheduler" tab → "Create task" button
-    uiKey: scheduler:createTask
+    where: '"Scheduler" tab → "Create task" button'
+    uiKey: scheduler:button.newTask
     why: Opens the task creation form — name, schedule, agent, and prompt.
   - id: scheduler-cron
     title: Cron expression
     kind: field
-    where: Task dialog → schedule field
-    uiKey: scheduler:dialog.cronLabel
+    where: 'Task dialog → schedule field'
+    uiKey: scheduler:schedule.expr
     why: Determines when to run the task. Format — minute hour day month day-of-week.
     notes:
       - Example "0 9 * * *" — every day at 9 AM.
   - id: scheduler-toggle
     title: Enable/Disable
     kind: switch
-    where: Task card → toggle
-    uiKey: scheduler:task.enabled
+    where: 'Task card → toggle'
+    uiKey: scheduler:task.disabled
     why: Temporarily disables a task without deleting it. Useful for pauses.
   - id: scheduler-run-now
     title: Run now
     kind: button
-    where: Task card → button
-    uiKey: scheduler:task.actions.runNow
+    where: 'Task card → button'
+    uiKey: scheduler:button.runNow
     why: Runs the task immediately without waiting for the schedule. For testing.
 ---
 

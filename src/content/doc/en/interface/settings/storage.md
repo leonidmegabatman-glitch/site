@@ -7,19 +7,19 @@ elements:
   - id: storage-tables
     title: Database tables
     kind: panel
-    where: Settings → Storage → main section
+    where: 'Settings → Storage → main section'
     uiKey: storage:header.title
     why: Shows the contents of Klavdiya's local database — agents, runs, settings. You can view, edit, and delete rows.
   - id: storage-table-select
     title: Table selector
     kind: select
-    where: Settings → Storage → dropdown
+    where: 'Settings → Storage → dropdown'
     uiKey: storage:select.placeholder
     why: Switches the view between database tables.
   - id: storage-sql
     title: SQL query
     kind: button
-    where: Settings → Storage → "SQL query" button
+    where: 'Settings → Storage → "SQL query" button'
     uiKey: storage:header.sqlQuery
     why: Opens an arbitrary SQL query editor. For advanced users who need direct data access.
     notes:
@@ -27,7 +27,7 @@ elements:
   - id: storage-reset
     title: Reset DB
     kind: button
-    where: Settings → Storage → "Reset DB" button
+    where: 'Settings → Storage → "Reset DB" button'
     uiKey: storage:header.resetDb
     why: Returns the database to its first-install state — all agents, runs, and settings are permanently deleted.
     notes:

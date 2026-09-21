@@ -7,20 +7,20 @@ elements:
   - id: usage-stats
     title: Stats panel
     kind: panel
-    where: "Usage" tab
-    uiKey: usage:title
+    where: '"Usage" tab'
+    uiKey: usage:header.title
     why: Shows total token consumption and cost for the selected period.
   - id: usage-period
     title: Period
     kind: select
-    where: "Usage" tab → dropdown
-    uiKey: usage:period.today
+    where: '"Usage" tab → dropdown'
+    uiKey: usage:range.all
     why: Filters statistics — today, week, month, or all time.
   - id: usage-chart
     title: Usage chart
     kind: panel
-    where: "Usage" tab → chart
-    uiKey: usage:chart.title
+    where: '"Usage" tab → chart'
+    uiKey: usage:tabs.timeline
     why: Visualizes token consumption by day. Helps track expenses.
 ---
 

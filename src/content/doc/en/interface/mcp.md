@@ -7,26 +7,26 @@ elements:
   - id: mcp-list
     title: Server list
     kind: panel
-    where: "MCP" tab
-    uiKey: mcp:title
+    where: '"MCP" tab'
+    uiKey: mcp:header.title
     why: Shows all connected MCP servers. Each server adds new tools to the agent.
   - id: mcp-add
     title: Add server
     kind: button
-    where: "MCP" tab → "Add server" button
-    uiKey: mcp:addServer
+    where: '"MCP" tab → "Add server" button'
+    uiKey: mcp:tabs.addServer
     why: Opens the server addition form — name, launch command, arguments, and environment variables.
   - id: mcp-status
     title: Server status
     kind: panel
-    where: Server card
-    uiKey: mcp:server.status.connected
+    where: 'Server card'
+    uiKey: mcp:status.running
     why: Shows whether the server is connected. If not — a "Connect" button.
   - id: mcp-connect
     title: Connect/Disconnect
     kind: button
-    where: Server card → button
-    uiKey: mcp:server.actions.connect
+    where: 'Server card → button'
+    uiKey: mcp:button.startServer
     why: Starts or stops the server process. A disconnected server does not provide tools.
 ---
 

@@ -7,7 +7,7 @@ elements:
   - id: permission-mode
     title: Permission mode
     kind: select
-    where: Settings → Permissions → first section
+    where: 'Settings → Permissions → first section'
     uiKey: settings:permissions.mode.title
     why: Determines how Klavdiya launches Claude Code when sending messages. The mode controls whether the agent asks for confirmation on every action or works autonomously.
     how:
@@ -19,7 +19,7 @@ elements:
   - id: allow-rules
     title: Allow rules
     kind: panel
-    where: Settings → Permissions → "Allow rules" section
+    where: 'Settings → Permissions → "Allow rules" section'
     uiKey: settings:permissions.allowLabel
     why: A list of tools and commands the agent may run without confirmation. Lets you narrow autonomy to specific actions.
     how:
@@ -31,7 +31,7 @@ elements:
   - id: deny-rules
     title: Deny rules
     kind: panel
-    where: Settings → Permissions → "Deny rules" section
+    where: 'Settings → Permissions → "Deny rules" section'
     uiKey: settings:permissions.denyLabel
     why: A list of tools and commands the agent must never run under any circumstances. Protection against dangerous actions.
     how:
@@ -43,7 +43,7 @@ elements:
   - id: add-rule
     title: Add rule
     kind: button
-    where: Settings → Permissions → below the rule list
+    where: 'Settings → Permissions → below the rule list'
     uiKey: settings:permissions.addRule
     why: Creates a new row in the allow or deny rule list.
 ---

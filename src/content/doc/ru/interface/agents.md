@@ -7,40 +7,40 @@ elements:
   - id: agents-list
     title: Список агентов
     kind: panel
-    where: Вкладка «Агенты»
+    where: 'Вкладка «Агенты»'
     uiKey: agents:list.title
     why: Показывает всех созданных агентов. Каждый агент — это набор инструкций для автоматизации конкретной задачи.
   - id: agents-create
     title: Создать агента
     kind: button
-    where: Вкладка «Агенты» → кнопка «Создать агента»
-    uiKey: agents:list.createAgent
+    where: 'Вкладка «Агенты» → кнопка «Создать агента»'
+    uiKey: agents:button.createAgent
     why: Открывает форму создания нового агента — имя, описание, системный промпт и модель.
   - id: agents-import
     title: Импорт агента
     kind: button
-    where: Вкладка «Агенты» → кнопка «Импорт агента»
-    uiKey: agents:list.importAgent
+    where: 'Вкладка «Агенты» → кнопка «Импорт агента»'
+    uiKey: agents:button.importAgent
     why: Импортирует агента из файла или другого источника.
   - id: agent-run
     title: Запуск агента
     kind: panel
-    where: Карточка агента → кнопка «Запустить»
-    uiKey: agents:run.title
+    where: 'Карточка агента → кнопка «Запустить»'
+    uiKey: agents:buttonTitle.execute
     why: Запускает агента с конкретной задачей. Можно выбрать изолированный прогон в git-worktree.
     notes:
       - Изолированный прогон не трогает ваше рабочее дерево.
   - id: agent-worktree
     title: Изолированный прогон
     kind: checkbox
-    where: Диалог запуска → галочка
-    uiKey: agents:run.worktree
+    where: 'Диалог запуска → галочка'
+    uiKey: agents:run.started
     why: Запускает агента в отдельной ветке git (worktree). Результат нужно смёржить вручную. Безопасно для основного кода.
   - id: agent-status
     title: Статус агента
     kind: panel
-    where: Карточка агента
-    uiKey: agents:card.status.idle
+    where: 'Карточка агента'
+    uiKey: agents:list.title
     why: Показывает текущее состояние агента — ожидание, выполняется, завершён или ошибка.
 ---
 
