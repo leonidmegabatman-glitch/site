@@ -14,12 +14,17 @@ The manual describes version **0.6.0**.
 
 ## Where to start
 
+- [Installation](znakomstvo/install/) — how to download and install Klavdiya on Windows.
+- [First launch](znakomstvo/first-launch/) — the setup wizard and the environment check.
+- [First chat](znakomstvo/first-chat/) — from opening a project to a finished task
+  in five minutes.
 - [Interface](interface/) — a catalog of everything visible in the window: tabs,
   buttons, checkboxes, fields, and panels.
 - [Settings → General](interface/settings/general/) — language, theme, chat history,
-  and environment setup. The most visited page.
-- [Screenshots needed](../../what-to-shoot/) — an internal page listing where the
-  manual is still missing shots.
+  and environment setup.
+
+The service page [Screenshots needed](what-to-shoot/) shows where the manual
+is still missing shots.
 
 ## How the manual is organized
 
@@ -34,6 +39,7 @@ Search opens with **Ctrl+K** from anywhere.
 
 | Section | Status |
 |---|---|
+| Getting started | Documented |
 | Settings (all 9 tabs) | Documented |
 | Window and Tabs | Documented |
 | Chat | Documented |
