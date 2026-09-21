@@ -48,7 +48,8 @@ Search opens with **Ctrl+K** from anywhere.
 | Scheduler | Documented |
 | MCP Servers | Documented |
 | Usage | Documented |
+| Reference | Documented |
 | Widgets, checkpoints, CLAUDE.md | In progress |
-| Recipes and reference | Planned |
+| Recipes | Planned |
 
 The site lives in a public repository and grows as screens get documented.
