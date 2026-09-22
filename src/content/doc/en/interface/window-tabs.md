@@ -10,6 +10,8 @@ elements:
     where: 'Window top bar'
     uiKey: titlebar:menu.projects
     why: Navigation between main app sections — projects, agents, sessions, MCP, settings, usage.
+    screenshot: interface/window.png
+    highlight: { x: 0.01, y: 0.005, w: 0.35, h: 0.04 }
   - id: titlebar-scheduler
     title: Scheduler
     kind: button
@@ -36,6 +38,8 @@ elements:
     why: Shows whether Claude Code is installed. If not — offers to install or pick an installation.
     notes:
       - If the status is "not found", chat will not work.
+    screenshot: interface/window.png
+    highlight: { x: 0.62, y: 0.005, w: 0.2, h: 0.04 }
   - id: tabs-bar
     title: Tab bar
     kind: panel
@@ -45,6 +49,8 @@ elements:
     notes:
       - Ctrl+T — new project.
       - Tabs can be closed with the middle mouse button.
+    screenshot: interface/window.png
+    highlight: { x: 0, y: 0.05, w: 1, h: 0.045 }
   - id: tab-close
     title: Close tab
     kind: button

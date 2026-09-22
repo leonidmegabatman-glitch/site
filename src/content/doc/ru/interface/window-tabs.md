@@ -10,6 +10,8 @@ elements:
     where: 'Верхняя панель окна'
     uiKey: titlebar:menu.projects
     why: Навигация между основными разделами приложения — проекты, агенты, сессии, MCP, настройки, статистика.
+    screenshot: interface/window.png
+    highlight: { x: 0.01, y: 0.005, w: 0.35, h: 0.04 }
   - id: titlebar-scheduler
     title: Планировщик
     kind: button
@@ -36,6 +38,8 @@ elements:
     why: Показывает, найден ли установленный Claude Code. Если нет — предлагает установить или выбрать установку.
     notes:
       - Если статус «не найден», чат не будет работать.
+    screenshot: interface/window.png
+    highlight: { x: 0.62, y: 0.005, w: 0.2, h: 0.04 }
   - id: tabs-bar
     title: Панель вкладок
     kind: panel
@@ -45,6 +49,8 @@ elements:
     notes:
       - Ctrl+T — новый проект.
       - Вкладки можно закрывать средней кнопкой мыши.
+    screenshot: interface/window.png
+    highlight: { x: 0, y: 0.05, w: 1, h: 0.045 }
   - id: tab-close
     title: Закрыть вкладку
     kind: button
