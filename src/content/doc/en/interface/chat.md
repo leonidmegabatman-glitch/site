@@ -5,6 +5,8 @@ section: interface
 order: 3
 elements:
   - id: chat-input
+    screenshot: interface/chat/session.png
+    highlight: { x: 0.12, y: 0.86, w: 0.72, h: 0.07 }
     title: Input bar
     kind: field
     where: 'Bottom of the session window'
@@ -16,18 +18,24 @@ elements:
     notes:
       - Ctrl+Shift+E — expand the input bar to fullscreen.
   - id: chat-send
+    screenshot: interface/chat/session.png
+    highlight: { x: 0.85, y: 0.86, w: 0.06, h: 0.05 }
     title: Send message
     kind: button
     where: 'Input bar → send button'
     uiKey: promptInput:sendMessageEnter
     why: Sends the typed message to the agent. Enter also sends.
   - id: chat-stop
+    screenshot: interface/chat/session.png
+    highlight: { x: 0.85, y: 0.86, w: 0.06, h: 0.05 }
     title: Stop generation
     kind: button
     where: 'Input bar → stop button (during generation)'
     uiKey: promptInput:stopGeneration
     why: Interrupts the current response generation. Useful when the agent goes in the wrong direction.
   - id: chat-model
+    screenshot: interface/chat/session.png
+    highlight: { x: 0.12, y: 0.94, w: 0.16, h: 0.04 }
     title: Model selector
     kind: select
     where: 'Input bar → model dropdown'
@@ -39,18 +47,24 @@ elements:
       - Opus — more powerful, for complex tasks.
       - Fable — maximum capabilities.
   - id: chat-thinking
+    screenshot: interface/chat/session.png
+    highlight: { x: 0.3, y: 0.94, w: 0.16, h: 0.04 }
     title: Thinking mode
     kind: select
     where: 'Input bar → thinking dropdown'
     uiKey: promptInput:thinkingLabel
     why: Controls the depth of the agent's reasoning before answering — from "Auto" to "Ultrathink".
   - id: chat-attach
+    screenshot: interface/chat/session.png
+    highlight: { x: 0.06, y: 0.86, w: 0.04, h: 0.05 }
     title: Attach files
     kind: button
     where: 'Input bar → paperclip icon'
     uiKey: promptInput:attachFiles
     why: Lets you attach files or a folder to the message. The agent will see their contents.
   - id: chat-context
+    screenshot: interface/chat/session.png
+    highlight: { x: 0.78, y: 0.94, w: 0.17, h: 0.04 }
     title: Context indicator
     kind: panel
     where: 'Input bar → right side'
@@ -59,6 +73,8 @@ elements:
     notes:
       - As the limit approaches, the agent will start losing earlier context.
   - id: chat-compact
+    screenshot: interface/chat/session.png
+    highlight: { x: 0.66, y: 0.055, w: 0.035, h: 0.03 }
     title: Compact and continue
     kind: button
     where: 'Session panel → eraser icon'
@@ -67,18 +83,24 @@ elements:
     notes:
       - The summary is not shown in chat — it works internally.
   - id: chat-subagents
+    screenshot: interface/chat/session.png
+    highlight: { x: 0.7, y: 0.055, w: 0.035, h: 0.03 }
     title: Subagent panel
     kind: button
     where: 'Session panel → agents icon'
     uiKey: sessions:tooltip.subagentPanel
     why: Shows active subagents launched by the current session. You can observe parallel work.
   - id: chat-export
+    screenshot: interface/chat/session.png
+    highlight: { x: 0.74, y: 0.055, w: 0.035, h: 0.03 }
     title: Export trace
     kind: button
     where: 'Session panel → export icon'
     uiKey: sessions:tooltip.exportTrace
     why: Creates an HTML file with a full session breakdown — message tree, subagents, search.
   - id: chat-copy
+    screenshot: interface/chat/session.png
+    highlight: { x: 0.78, y: 0.055, w: 0.035, h: 0.03 }
     title: Copy conversation
     kind: button
     where: 'Session panel → copy icon'
