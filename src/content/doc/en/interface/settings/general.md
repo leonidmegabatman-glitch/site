@@ -10,6 +10,8 @@ elements:
     kind: button
     where: 'Settings → General → first section'
     why: Switches the language of the whole application interface. Almost everything is translated into Russian; English remains for those used to it.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.06, w: 0.22, h: 0.06 }
     how:
       - Click "Русский" or "English".
       - Click "Save settings" at the bottom of the page.
@@ -33,6 +35,8 @@ elements:
     kind: field
     where: 'Settings → General → "Theme" → "Своя"'
     why: Lets you set your own interface colours — background, text, cards, accent and the colour of dangerous actions.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.2, w: 0.22, h: 0.06 }
     notes:
       - The fields accept CSS colour values (hex, rgb, oklch, etc.).
       - Visible only when the "Своя" theme is selected.
@@ -42,6 +46,8 @@ elements:
     kind: switch
     where: 'Settings → General → commits section'
     why: Adds a Claude signature to commits and pull requests the agent makes, so git history shows where the agent worked.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.3, w: 0.22, h: 0.06 }
   - id: verbose-output
     uiKey: settings:general.verbose.label
     title: Verbose output
@@ -56,18 +62,24 @@ elements:
     kind: field
     where: 'Settings → General'
     why: How many days of session history to keep. 30 by default; older entries are deleted automatically.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.38, w: 0.22, h: 0.06 }
   - id: environment-setup
     uiKey: environmentSetup:title
     title: Environment setup
     kind: panel
     where: 'Settings → General → setup section'
     why: Checks and installs what Klavdiya needs to run — Claude Code, Node.js, Git. Shows the state of each tool and can install what is missing.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.5, w: 0.22, h: 0.12 }
   - id: claude-install
     uiKey: claudeVersion:installationLabel
     title: Claude installation
     kind: select
     where: 'Settings → General → setup section'
     why: Chooses which Claude Code installation to use when several are present on the machine.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.64, w: 0.22, h: 0.06 }
     notes:
       - Changes apply after saving settings.
   - id: remember-tabs
@@ -76,6 +88,8 @@ elements:
     kind: switch
     where: 'Settings → General'
     why: On the next launch Klavdiya reopens the same tabs that were open when it closed. Saves time when working with the same set of projects.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.72, w: 0.22, h: 0.06 }
   - id: startup-greeting
     uiKey: settings:general.startupIntro.label
     title: Show greeting on startup

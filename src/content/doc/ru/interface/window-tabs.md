@@ -18,18 +18,24 @@ elements:
     where: 'Верхняя панель → иконка часов'
     uiKey: titlebar:tooltip.scheduler
     why: Открывает вкладку планировщика задач — автоматический запуск сессий по расписанию.
+    screenshot: interface/window.png
+    highlight: { x: 0.84, y: 0.005, w: 0.03, h: 0.04 }
   - id: titlebar-settings
     title: Настройки
     kind: button
     where: 'Верхняя панель → иконка шестерёнки'
     uiKey: titlebar:tooltip.settings
     why: Открывает настройки приложения — язык, тема, разрешения, окружение и другие вкладки.
+    screenshot: interface/window.png
+    highlight: { x: 0.875, y: 0.005, w: 0.03, h: 0.04 }
   - id: titlebar-more
     title: Ещё
     kind: button
     where: 'Верхняя панель → иконка «…»'
     uiKey: titlebar:tooltip.more
     why: Дополнительное меню с доступом к CLAUDE.md, MCP-серверам и странице «О программе».
+    screenshot: interface/window.png
+    highlight: { x: 0.91, y: 0.005, w: 0.03, h: 0.04 }
   - id: claude-status
     title: Статус Claude Code
     kind: panel
@@ -57,18 +63,24 @@ elements:
     where: 'Панель вкладок → крестик на вкладке'
     uiKey: tabs:tooltip.closeTab
     why: Закрывает вкладку. Если есть несохранённые изменения, покажется предупреждение.
+    screenshot: interface/window.png
+    highlight: { x: 0.28, y: 0.055, w: 0.02, h: 0.03 }
   - id: new-session
     title: Новая сессия
     kind: button
     where: 'Панель вкладок → кнопка «+» внутри проекта'
     uiKey: tabs:actions.newSession
     why: Создаёт новую сессию чата в текущем проекте.
+    screenshot: interface/window.png
+    highlight: { x: 0.32, y: 0.055, w: 0.02, h: 0.03 }
   - id: back-to-projects
     title: К списку проектов
     kind: button
     where: 'Панель вкладок → стрелка назад'
     uiKey: tabs:tooltip.backToProjects
     why: Возвращает к списку проектов, если открыта конкретная сессия.
+    screenshot: interface/window.png
+    highlight: { x: 0.005, y: 0.055, w: 0.02, h: 0.035 }
 ---
 
 Окно Клавдии состоит из верхней панели с навигацией, панели вкладок и

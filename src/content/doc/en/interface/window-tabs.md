@@ -18,18 +18,24 @@ elements:
     where: 'Top bar → clock icon'
     uiKey: titlebar:tooltip.scheduler
     why: Opens the task scheduler tab — automatic session launches on a schedule.
+    screenshot: interface/window.png
+    highlight: { x: 0.84, y: 0.005, w: 0.03, h: 0.04 }
   - id: titlebar-settings
     title: Settings
     kind: button
     where: 'Top bar → gear icon'
     uiKey: titlebar:tooltip.settings
     why: Opens app settings — language, theme, permissions, environment and other tabs.
+    screenshot: interface/window.png
+    highlight: { x: 0.875, y: 0.005, w: 0.03, h: 0.04 }
   - id: titlebar-more
     title: More
     kind: button
     where: 'Top bar → "…" icon'
     uiKey: titlebar:tooltip.more
     why: Additional menu with access to CLAUDE.md, MCP servers, and the About page.
+    screenshot: interface/window.png
+    highlight: { x: 0.91, y: 0.005, w: 0.03, h: 0.04 }
   - id: claude-status
     title: Claude Code status
     kind: panel
@@ -57,18 +63,24 @@ elements:
     where: 'Tab bar → X on a tab'
     uiKey: tabs:tooltip.closeTab
     why: Closes the tab. If there are unsaved changes, a warning appears.
+    screenshot: interface/window.png
+    highlight: { x: 0.28, y: 0.055, w: 0.02, h: 0.03 }
   - id: new-session
     title: New session
     kind: button
     where: 'Tab bar → "+" button inside a project'
     uiKey: tabs:actions.newSession
     why: Creates a new chat session in the current project.
+    screenshot: interface/window.png
+    highlight: { x: 0.32, y: 0.055, w: 0.02, h: 0.03 }
   - id: back-to-projects
     title: Back to projects
     kind: button
     where: 'Tab bar → back arrow'
     uiKey: tabs:tooltip.backToProjects
     why: Returns to the project list if a specific session is open.
+    screenshot: interface/window.png
+    highlight: { x: 0.005, y: 0.055, w: 0.02, h: 0.035 }
 ---
 
 Klavdiya's window consists of a top navigation bar, a tab bar, and the main

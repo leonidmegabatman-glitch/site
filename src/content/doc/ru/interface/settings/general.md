@@ -10,6 +10,8 @@ elements:
     kind: button
     where: 'Настройки → Общие → первая секция'
     why: Переключает язык всего интерфейса приложения. Практически всё уже переведено на русский, английский остался для тех, кто привык к нему.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.06, w: 0.22, h: 0.06 }
     how:
       - Нажмите «Русский» или «English».
       - Нажмите «Сохранить настройки» внизу страницы.
@@ -33,6 +35,8 @@ elements:
     kind: field
     where: 'Настройки → Общие → «Тема» → вариант «Своя»'
     why: Позволяет задать собственные цвета интерфейса — фон, текст, карточки, акцент и цвет опасных действий.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.2, w: 0.22, h: 0.06 }
     notes:
       - Поля принимают значения CSS-цветов (hex, rgb, oklch и т. д.).
       - Секция видна только когда выбрана тема «Своя».
@@ -42,6 +46,8 @@ elements:
     kind: switch
     where: 'Настройки → Общие → секция коммитов'
     why: Добавляет подпись Claude в коммиты и pull request'ы, которые делает агент. Полезно, чтобы по истории git было видно, где поработал агент.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.3, w: 0.22, h: 0.06 }
   - id: verbose-output
     uiKey: settings:general.verbose.label
     title: Подробный вывод
@@ -56,18 +62,24 @@ elements:
     kind: field
     where: 'Настройки → Общие'
     why: Сколько дней хранить историю сессий. По умолчанию 30 дней. Старое удаляется автоматически.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.38, w: 0.22, h: 0.06 }
   - id: environment-setup
     uiKey: environmentSetup:title
     title: Установка окружения
     kind: panel
     where: 'Настройки → Общие → секция установки'
     why: Проверяет и ставит то, без чего Клавдия не работает, — Claude Code, Node.js, Git. Показывает состояние каждого инструмента и умеет доустановить недостающее.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.5, w: 0.22, h: 0.12 }
   - id: claude-install
     uiKey: claudeVersion:installationLabel
     title: Установка Claude
     kind: select
     where: 'Настройки → Общие → секция установки'
     why: Выбирает, какую именно установку Claude Code использовать, если их на машине несколько.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.64, w: 0.22, h: 0.06 }
     notes:
       - Изменения применяются после сохранения настроек.
   - id: remember-tabs
@@ -76,6 +88,8 @@ elements:
     kind: switch
     where: 'Настройки → Общие'
     why: При следующем запуске Клавдия откроет те же вкладки, что были открыты при закрытии. Экономит время, если работаешь с одним и тем же набором проектов.
+    screenshot: interface/settings/general/panel.png
+    highlight: { x: 0.06, y: 0.72, w: 0.22, h: 0.06 }
   - id: startup-greeting
     uiKey: settings:general.startupIntro.label
     title: Показывать приветствие при запуске
