@@ -10,12 +10,16 @@ elements:
     where: 'Window on first launch'
     uiKey: environmentSetup:wizardTitle
     why: 'The wizard checks whether the environment is ready and helps install what is missing. Opens automatically on first launch.'
+    screenshot: znakomstvo/first-launch.png
+    highlight: { x: 0.3, y: 0.02, w: 0.4, h: 0.14 }
   - id: wizard-claude
     title: Claude Code
     kind: panel
     where: 'Wizard → tool list'
     uiKey: environmentSetup:tool.claude.name
     why: 'The foundation of Klavdiya — the program that performs tasks. The only required component: chat does not work without it.'
+    screenshot: znakomstvo/first-launch.png
+    highlight: { x: 0.05, y: 0.29, w: 0.9, h: 0.16 }
     notes:
       - 'Downloaded directly, even if the main site is unavailable in your region.'
       - 'Fallback — installation through Node.js (npm).'
@@ -25,18 +29,24 @@ elements:
     where: 'Wizard → tool list'
     uiKey: environmentSetup:tool.node.name
     why: 'Needed for extensions and MCP servers. Optional, but recommended.'
+    screenshot: znakomstvo/first-launch.png
+    highlight: { x: 0.05, y: 0.47, w: 0.9, h: 0.15 }
   - id: wizard-git
     title: Git
     kind: panel
     where: 'Wizard → tool list'
     uiKey: environmentSetup:tool.git.name
     why: 'Gives Claude a full Bash terminal and version control. Optional, but recommended.'
+    screenshot: znakomstvo/first-launch.png
+    highlight: { x: 0.05, y: 0.63, w: 0.9, h: 0.15 }
   - id: wizard-start
     title: Start working
     kind: button
     where: 'Wizard → bottom button'
     uiKey: environmentSetup:wizard.start
     why: 'Closes the wizard and opens the project list. Appears once everything required is in place.'
+    screenshot: znakomstvo/first-launch.png
+    highlight: { x: 0.43, y: 0.79, w: 0.15, h: 0.06 }
   - id: wizard-login-hint
     title: Account login
     kind: panel
