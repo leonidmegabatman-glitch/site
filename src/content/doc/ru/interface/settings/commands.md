@@ -10,24 +10,32 @@ elements:
     where: 'Настройки → Команды'
     uiKey: slashCommands:manager.title
     why: Показывает все слэш-команды — встроенные, пользовательские и проектные. Здесь их создают, редактируют и удаляют.
+    screenshot: interface/settings/commands/panel.png
+    highlight: { x: 0.05, y: 0.12, w: 0.9, h: 0.8 }
   - id: commands-new
     title: Новая команда
     kind: button
     where: 'Настройки → Команды → кнопка «Новая команда»'
     uiKey: slashCommands:manager.newCommand
     why: Открывает диалог создания слэш-команды. Команда — это имя, область (пользователь/проект) и содержимое (промт или шаблон).
+    screenshot: interface/settings/commands/panel.png
+    highlight: { x: 0.35, y: 0.13, w: 0.14, h: 0.045 }
   - id: commands-scope
     title: Область команды
     kind: select
     where: 'Настройки → Команды → фильтр или диалог создания'
     uiKey: slashCommands:manager.scope.all
     why: Пользовательские команды доступны во всех проектах, проектные — только в текущем. Выбор области определяет, где хранится файл команды.
+    screenshot: interface/settings/commands/panel.png
+    highlight: { x: 0.05, y: 0.2, w: 0.3, h: 0.3 }
   - id: commands-search
     title: Поиск команд
     kind: field
     where: 'Настройки → Команды → строка поиска'
     uiKey: slashCommands:manager.searchPlaceholder
     why: Быстрый поиск по имени команды, когда их много.
+    screenshot: interface/settings/commands/panel.png
+    highlight: { x: 0.6, y: 0.13, w: 0.35, h: 0.05 }
 ---
 
 Вкладка «Команды» управляет слэш-командами — короткими шаблонами, которые
