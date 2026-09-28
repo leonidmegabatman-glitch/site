@@ -1,0 +1,9 @@
+# Markdown-контент всегда с LF: разбор фронтматтера режет по \n,
+# и лишний \r внутри строки ломает YAML (flow-маппинги highlight).
+*.md text eol=lf
+*.mjs text eol=lf
+*.astro text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.css text eol=lf
+*.yml text eol=lf
