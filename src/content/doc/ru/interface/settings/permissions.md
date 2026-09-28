@@ -16,6 +16,8 @@ elements:
     notes:
       - «Пропускать все проверки» — режим по умолчанию; правила ниже игнорируются.
       - «Режим плана» и «Ручное подтверждение» могут блокировать инструменты, но в чате нет запроса подтверждения — задача просто не выполнит действие.
+    screenshot: interface/settings/permissions/panel.png
+    highlight: { x: 0.05, y: 0.12, w: 0.3, h: 0.08 }
   - id: allow-rules
     title: Разрешающие правила
     kind: panel
@@ -28,6 +30,8 @@ elements:
       - Нажмите «Сохранить настройки».
     notes:
       - Правила применяются только в режимах, отличных от «Пропускать все проверки».
+    screenshot: interface/settings/permissions/panel.png
+    highlight: { x: 0.05, y: 0.25, w: 0.9, h: 0.2 }
   - id: deny-rules
     title: Запрещающие правила
     kind: panel
@@ -40,12 +44,16 @@ elements:
       - Нажмите «Сохранить настройки».
     notes:
       - Запрет имеет приоритет над разрешением.
+    screenshot: interface/settings/permissions/panel.png
+    highlight: { x: 0.05, y: 0.48, w: 0.9, h: 0.2 }
   - id: add-rule
     title: Добавить правило
     kind: button
     where: 'Настройки → Разрешения → под списком правил'
     uiKey: settings:permissions.addRule
     why: Создаёт новую строку в списке разрешающих или запрещающих правил.
+    screenshot: interface/settings/permissions/panel.png
+    highlight: { x: 0.05, y: 0.7, w: 0.16, h: 0.05 }
 ---
 
 Вкладка «Разрешения» управляет тем, какие действия агент может выполнять

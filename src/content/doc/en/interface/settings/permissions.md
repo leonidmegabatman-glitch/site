@@ -16,6 +16,8 @@ elements:
     notes:
       - '"Bypass all checks" is the default; rules below are ignored.'
       - '"Plan mode" and "Manual confirmation" may block tools, but there is no confirmation prompt in chat — the task simply won''t perform the action.'
+    screenshot: interface/settings/permissions/panel.png
+    highlight: { x: 0.05, y: 0.12, w: 0.3, h: 0.08 }
   - id: allow-rules
     title: Allow rules
     kind: panel
@@ -28,6 +30,8 @@ elements:
       - Click "Save settings".
     notes:
       - Rules apply only in modes other than "Bypass all checks".
+    screenshot: interface/settings/permissions/panel.png
+    highlight: { x: 0.05, y: 0.25, w: 0.9, h: 0.2 }
   - id: deny-rules
     title: Deny rules
     kind: panel
@@ -40,12 +44,16 @@ elements:
       - Click "Save settings".
     notes:
       - Deny takes priority over allow.
+    screenshot: interface/settings/permissions/panel.png
+    highlight: { x: 0.05, y: 0.48, w: 0.9, h: 0.2 }
   - id: add-rule
     title: Add rule
     kind: button
     where: 'Settings → Permissions → below the rule list'
     uiKey: settings:permissions.addRule
     why: Creates a new row in the allow or deny rule list.
+    screenshot: interface/settings/permissions/panel.png
+    highlight: { x: 0.05, y: 0.7, w: 0.16, h: 0.05 }
 ---
 
 The "Permissions" tab controls which actions the agent can perform on its own
