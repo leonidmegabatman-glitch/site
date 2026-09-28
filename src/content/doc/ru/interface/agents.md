@@ -10,24 +10,32 @@ elements:
     where: 'Вкладка «Агенты»'
     uiKey: agents:list.title
     why: Показывает всех созданных агентов. Каждый агент — это набор инструкций для автоматизации конкретной задачи.
+    screenshot: interface/agents/panel.png
+    highlight: { x: 0.05, y: 0.12, w: 0.9, h: 0.8 }
   - id: agents-create
     title: Создать агента
     kind: button
     where: 'Вкладка «Агенты» → кнопка «Создать агента»'
     uiKey: agents:button.createAgent
     why: Открывает форму создания нового агента — имя, описание, системный промпт и модель.
+    screenshot: interface/agents/panel.png
+    highlight: { x: 0.35, y: 0.13, w: 0.14, h: 0.045 }
   - id: agents-import
     title: Импорт агента
     kind: button
     where: 'Вкладка «Агенты» → кнопка «Импорт агента»'
     uiKey: agents:button.importAgent
     why: Импортирует агента из файла или другого источника.
+    screenshot: interface/agents/panel.png
+    highlight: { x: 0.5, y: 0.13, w: 0.14, h: 0.045 }
   - id: agent-run
     title: Запуск агента
     kind: panel
     where: 'Карточка агента → кнопка «Запустить»'
     uiKey: agents:buttonTitle.execute
     why: Запускает агента с конкретной задачей. Можно выбрать изолированный прогон в git-worktree.
+    screenshot: interface/agents/panel.png
+    highlight: { x: 0.05, y: 0.2, w: 0.9, h: 0.3 }
     notes:
       - Изолированный прогон не трогает ваше рабочее дерево.
   - id: agent-worktree
@@ -42,6 +50,8 @@ elements:
     where: 'Карточка агента'
     uiKey: agents:list.title
     why: Показывает текущее состояние агента — ожидание, выполняется, завершён или ошибка.
+    screenshot: interface/agents/panel.png
+    highlight: { x: 0.05, y: 0.2, w: 0.9, h: 0.3 }
 ---
 
 Агенты — это автоматизированные помощники. Каждый агент имеет системный
