@@ -44,6 +44,8 @@ elements:
     where: 'Диалог запуска → галочка'
     uiKey: agents:run.started
     why: Запускает агента в отдельной ветке git (worktree). Результат нужно смёржить вручную. Безопасно для основного кода.
+    screenshot: interface/agents/run-dialog.png
+    highlight: { x: 0.28, y: 0.55, w: 0.44, h: 0.08 }
   - id: agent-status
     title: Статус агента
     kind: panel

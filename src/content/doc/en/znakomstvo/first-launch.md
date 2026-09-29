@@ -53,6 +53,8 @@ elements:
     where: 'Wizard → hint after installation'
     uiKey: environmentSetup:wizard.loginHintTitle
     why: 'A reminder: on the first task Claude will ask you to sign in through the browser. If you use an API key or a gateway, set it in Settings → Environment.'
+    screenshot: znakomstvo/first-launch.png
+    highlight: { x: 0.05, y: 0.79, w: 0.9, h: 0.12 }
 ---
 
 First launch greets you with the environment setup wizard. It checks what

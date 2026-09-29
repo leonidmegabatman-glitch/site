@@ -44,6 +44,8 @@ elements:
     where: 'Run dialog → checkbox'
     uiKey: agents:run.started
     why: Runs the agent in a separate git branch (worktree). The result must be merged manually. Safe for the main code.
+    screenshot: interface/agents/run-dialog.png
+    highlight: { x: 0.28, y: 0.55, w: 0.44, h: 0.08 }
   - id: agent-status
     title: Agent status
     kind: panel
