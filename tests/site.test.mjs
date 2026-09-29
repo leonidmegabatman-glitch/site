@@ -99,8 +99,10 @@ test('дерево показывает пустые разделы со ста�
   assert.match(html, /в разработке/);
 });
 
-test('«Что нужно доснять» перечисляет карточки без поля снимка', () => {
-  const html = read('ru/what-to-shoot/index.html');
-  assert.doesNotMatch(html, /Все снимки на месте/);
-  assert.match(html, /interface\/settings\/general\/language\.png/);
+test('«Что нужно доснять» сообщает, что все снимки на месте', () => {
+  // Все карточки закрыты снимками (2026-09-29) — страница показывает статус «всё на месте».
+  const ru = read('ru/what-to-shoot/index.html');
+  assert.match(ru, /Все снимки на месте/);
+  const en = read('en/what-to-shoot/index.html');
+  assert.match(en, /All screenshots are in place/);
 });
