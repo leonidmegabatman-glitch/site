@@ -10,30 +10,40 @@ elements:
     where: 'Settings → Proxy → first toggle'
     uiKey: proxy:enable
     why: Activates proxy usage for all Claude API requests. Needed when direct access is blocked or traffic must be logged.
+    screenshot: interface/settings/proxy/panel.png
+    highlight: { x: 0.3, y: 0.11, w: 0.62, h: 0.06 }
   - id: proxy-http
     title: HTTP proxy
     kind: field
     where: 'Settings → Proxy → HTTP field'
     uiKey: proxy:httpProxy
     why: Proxy URL for HTTP requests. Format "http://host:port".
+    screenshot: interface/settings/proxy/panel.png
+    highlight: { x: 0.3, y: 0.2, w: 0.62, h: 0.11 }
   - id: proxy-https
     title: HTTPS proxy
     kind: field
     where: 'Settings → Proxy → HTTPS field'
     uiKey: proxy:httpsProxy
     why: Proxy URL for HTTPS requests. Format "https://host:port".
+    screenshot: interface/settings/proxy/panel.png
+    highlight: { x: 0.3, y: 0.33, w: 0.62, h: 0.11 }
   - id: proxy-no-proxy
     title: No proxy
     kind: field
     where: 'Settings → Proxy → "No proxy" field'
     uiKey: proxy:noProxy
     why: A comma-separated list of hosts that should bypass the proxy. For example, "localhost,127.0.0.1".
+    screenshot: interface/settings/proxy/panel.png
+    highlight: { x: 0.3, y: 0.46, w: 0.62, h: 0.11 }
   - id: proxy-all
     title: All-protocol proxy
     kind: field
     where: 'Settings → Proxy → "All protocols" field'
     uiKey: proxy:allProxy
     why: A single proxy URL used when protocol-specific proxies are not set.
+    screenshot: interface/settings/proxy/panel.png
+    highlight: { x: 0.3, y: 0.59, w: 0.62, h: 0.11 }
     notes:
       - Optional field.
 ---
